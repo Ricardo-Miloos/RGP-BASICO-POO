@@ -24,6 +24,9 @@ void Enemy::takeDamage(int damage) {
     if(health < (health * 0.15) && contador_defensa == 0){
         defend(this);
         int trueDamage = damage - defense;
+        if (trueDamage < 0 || defense > trueDamage) {
+            trueDamage = 0;
+        }
         contador_defensa++;
         if(health <= 0) {
             // Si la vida del enemigo es menor a 0 usar la funcion setHealth para que la vida sea 0

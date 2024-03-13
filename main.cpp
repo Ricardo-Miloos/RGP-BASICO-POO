@@ -7,10 +7,10 @@
 
 
 int main() {
-    Player *player = new Player("Victor", 85, 7, 4, 5);
-    Player *player2 = new Player("Santiago", 50, 10, 2, 3);
-    Enemy *enemy = new Enemy("Goblin", 30, 10, 2, 5, 10);
-    Enemy *enemy2 = new Enemy("Orc", 30, 6, 5, 5, 10);
+    Player *player = new Player("Victor", 30, 7, 10, 5);
+    Player *player2 = new Player("The Knight", 25, 15, 7, 10);
+    Enemy *enemy = new Enemy("Punished Soul of Skeleton Prime", 40, 6, 8, 5, 10);
+    Enemy *enemy2 = new Enemy("Punished Soul of The Destructor", 50, 10, 9, 5, 10);
 
     vector<Character*> participants;
 
@@ -23,6 +23,7 @@ int main() {
     combat->doCombat();
 
     delete player;
+    delete player2;
     delete enemy;
     delete enemy2;
     delete combat;

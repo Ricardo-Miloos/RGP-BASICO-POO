@@ -11,11 +11,11 @@ using namespace std;
 
 class Action {
 public:
-    //velocidad de quien realiza la accion
+    //velocidad de la accion
     int speed = 0;
     //TODO: ESTABLECER INT PARA DAR SPEED DE PRIORIDAD
 
-    //Quien recibe de la accion
+    //Quien recibe la accion
     Character* target = nullptr;
 
     //Quien realiza la accion

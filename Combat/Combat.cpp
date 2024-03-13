@@ -72,7 +72,8 @@ Character* Combat::getTarget(Character* attacker) {
 }
 
 void Combat::doCombat() {
-    cout<< "Inicio del combate" << endl;
+    cout << "Place: Void of the forbidden souls (dungeon)" << endl;
+    cout<< "Combat begins!" << endl;
     combatPrep();
     int round = 1;
     //Este while representa las rondas del combate

@@ -15,10 +15,9 @@ Player::Player(string _name, int _health, int _attack, int _defense, int _speed)
 void Player::doAttack(Character *target) {
     target->takeDamage(attack);
 }
-
+// Si la defensa del jugador es mayor al daño recibido, no afecta la vida
 void Player::takeDamage(int damage) {
     int trueDamage = damage - defense;
-    // Si la defensa es mayor al daño recibido, no se resta vida
     if (trueDamage < 0) {
         trueDamage = 0;
     } else {
@@ -28,11 +27,11 @@ void Player::takeDamage(int damage) {
     cout << name << " took " << trueDamage << " damage!" << endl;
 
     if(health <= 0) {
-        cout << name << " has been defeated!" << endl;
+        cout << name << " has been killed!" << endl;
         // Si la vida del jugador es menor a 0 usar la funcion setHealth para que la vida sea 0
         setHealth(this, 0);
     }
-    cout << "Health remaning: " << health << endl;
+    cout << "(Health remaining: " << health << ")" << endl;
 }
 
 void Player::levelUp() {
@@ -62,20 +61,20 @@ Character* Player::selectTarget(vector<Enemy*> possibleTargets) {
 Action Player::takeAction(vector<Enemy*> enemies) {
 
     int action = 0;
-    //Implementacion de un interruptor para validar la entrada del usuario
-    bool interruptor = true;
+    //Implementacion de un interruptor para validar la entrada desde la consola
+    bool check = true;
     do {
         cout << getName() << " turn to act." << endl;
         cout << "Select an action: " << endl << "1. Attack" << endl;
         cout << "2. Defend" << endl;
         cin >> action;
         if(action == 1 || action == 2){
-            interruptor = false;
+            check = false;
         }
         else {
             cout << "Invalid action" << endl;
         }
-    }while (interruptor);
+    }while (check);
         Action currentAction;
         Character* target = nullptr;
 
@@ -83,7 +82,7 @@ Action Player::takeAction(vector<Enemy*> enemies) {
         case 1:
             if (defensas == 1) {
                 stopDefend(this);
-                cout << name << " Stop defending and now will attack." << endl;
+                cout << name << "Is switching to attack" << endl;
                 defensas = 0;
             }
             target = selectTarget(enemies);
@@ -92,6 +91,7 @@ Action Player::takeAction(vector<Enemy*> enemies) {
                 doAttack(target);
             };
             currentAction.speed = getSpeed();
+            cout << name << " is attacking " << target->getName() << "!" << endl;
             break;
         case 2:
             currentAction.target = this;
@@ -107,7 +107,7 @@ Action Player::takeAction(vector<Enemy*> enemies) {
                 };
             } else if (this->defensas == 1) {
                 this->stopDefend(this);
-                cout << name << " cant defend twice!" << endl;
+                cout << name << " Is already om defend mode" << endl;
                 cout << "Defense: " << defense << endl;
                 this->defensas = 2;
                 currentAction.speed = getSpeed() * (100);
@@ -115,7 +115,7 @@ Action Player::takeAction(vector<Enemy*> enemies) {
                     this->stopDefend(this);
                 };
             } else {
-                cout << "Cant defend twice. You lose a movement" << endl;
+                cout << "Cant defend twice. You lose an action" << endl;
                 this->skipTurn(this);
                 //Take a movement from the player
                 currentAction.speed = getSpeed() * (100);
@@ -128,5 +128,6 @@ Action Player::takeAction(vector<Enemy*> enemies) {
                 break;
             }
     }
+    cout << "\n";
     return currentAction;
 }
