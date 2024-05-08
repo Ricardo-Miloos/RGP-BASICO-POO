@@ -3,7 +3,7 @@
 //
 
 #include "Character.h"
-Character::Character(char *_name, int _health, int _attack, int _defense, int _speed, bool _isPlayer) {
+Character::Character(int _experience, char *_name, int _health, int _attack, int _defense, int _speed, bool _isPlayer) {
     //Cambio de name de string a char[30]
     for (int i = 0; i < 30; i++) {
         name[i] = _name[i];
@@ -13,6 +13,7 @@ Character::Character(char *_name, int _health, int _attack, int _defense, int _s
     defense = _defense;
     speed = _speed;
     isPlayer = _isPlayer;
+    experience = _experience;
 }
 
 const char* Character::getName() {
@@ -34,9 +35,12 @@ int Character::getDefense() {
 int Character::getSpeed() {
     return speed;
 }
-
+int Character::getExperience() {
+    return experience;
+}
+//check
 string Character::toString() {
-    return "Name: " + string (name) + "\nHealth: " + to_string(health) + "\nAttack: " + to_string(attack) + "\nDefense: " + to_string(defense) + "\nSpeed: " + to_string(speed);
+    return "Name: " + string (name) + "\nHealth: " + to_string(health) + "\nAttack: " + to_string(attack) + "\nDefense: " + to_string(defense) + "\nSpeed: " + to_string(speed ) + "\nExperience: " + to_string(experience) + "\n";
 }
 
 bool Character::getIsPlayer() {

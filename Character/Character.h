@@ -16,9 +16,10 @@ protected:
     int attack;
     int defense;
     int speed;
+    int experience;
     bool isPlayer;
 public:
-    Character(char *_name, int _health, int _attack, int _defense, int _speed, bool _isPlayer);
+    Character(int _experience, char *_name, int _health, int _attack, int _defense, int _speed, bool _isPlayer);
 
     virtual void doAttack(Character *target) = 0;
     virtual void takeDamage(int damage) = 0;
@@ -33,12 +34,14 @@ public:
     //Funcion para saltar un turno y no hacer nada
     virtual void skipTurn(Character *target){};
     bool flee(Character* target);
+
     const char* getName();
     int getHealth();
     int getAttack();
     int getDefense();
     bool getIsPlayer();
     int getSpeed();
+    int getExperience();
     string toString();
 };
 

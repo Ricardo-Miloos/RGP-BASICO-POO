@@ -5,12 +5,13 @@
 #include "Character/Character.h"
 #include "Combat/Action.h"
 
+// :)
 
 int main() {
-    Player *player = new Player("Victor", 30, 7, 10, 5);
-    Player *player2 = new Player("The Knight", 25, 15, 7, 10);
-    Enemy *enemy = new Enemy("Punished Soul of Skeleton Prime", 40, 6, 8, 5, 10);
-    Enemy *enemy2 = new Enemy("Punished Soul of The Destructor", 50, 10, 9, 5, 10);
+    Player *player = new Player(1,"Victor", 50, 100, 5, 5);
+    Player *player2 = new Player(1, "The Knight", 50, 150, 7, 10);
+    Enemy *enemy = new Enemy(100, "Skeleton Prime", 40, 50, 8, 5);
+    Enemy *enemy2 = new Enemy(100, "The Destructor", 50, 50, 10, 9);
 
     vector<Character*> participants;
 

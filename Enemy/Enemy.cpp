@@ -10,7 +10,7 @@
 using namespace std;
 using namespace combat_utils;
 
-Enemy::Enemy(char* _name, int _health, int _attack, int _defense, int _speed, int _experience) : Character(_name, _health, _attack, _defense, _speed, false) {
+Enemy::Enemy(int _experience, char* _name, int _health, int _attack, int _defense, int _speed) : Character(_experience,_name, _health, _attack, _defense, _speed,false) {
     experience = _experience;
 }
 
@@ -53,9 +53,6 @@ void Enemy::takeDamage(int damage) {
     }
 }
 
-int Enemy::getExperience() {
-    return experience;
-}
 
 Character* Enemy::selectTarget(vector<Player*> possibleTargets) {
     //target with less health

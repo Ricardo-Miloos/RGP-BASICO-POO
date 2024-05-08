@@ -7,9 +7,9 @@
 
 using namespace std;
 
-Player::Player(char* _name, int _health, int _attack, int _defense, int _speed) : Character(_name, _health, _attack, _defense, _speed, true) {
+Player::Player(int _experience, char* _name, int _health, int _attack, int _defense, int _speed) : Character(_experience, _name, _health, _attack, _defense, _speed,true) {
     level = 1;
-    experience = 0;
+    experience = 1;
 }
 
 void Player::doAttack(Character *target) {
@@ -33,19 +33,50 @@ void Player::takeDamage(int damage) {
     }
     cout << "(Health remaining: " << health << ")" << endl;
 }
-
-void Player::levelUp() {
+//fucion para subir de nivel al jugador
+void Player::levelUp(Character *target) {
+while (this->experience >= 100) {
     level++;
+    cout << "\n[" << name << " has leveled up to level: " << level << " !]" << endl;
+    experience -= 100;
+    cout << "\n(----- Choose a stat to upgrade it: -----)" << endl;
+    cout << "1. Health" << endl;
+    cout << "2. Attack" << endl;
+    cout << "3. Defense" << endl;
+    cout << "4. Speed" << endl;
+    int stat = 0;
+    while (stat < 1 || stat > 4) {
+        cin >> stat;
+        switch (stat) {
+            case 1:
+                health += 10;
+                cout << "///[New Health: " << health << "]///" << endl;
+                break;
+            case 2:
+                attack += 5;
+                cout << "///[New Attack: " << attack << "]///" << endl;
+                break;
+            case 3:
+                defense += 5;
+                cout << "///[New Defense: " << defense << "]///" << endl;
+                break;
+            case 4:
+                speed += 5;
+                cout << "///[New Speed: " << speed << "]///" << endl;
+                break;
+            default:
+                cout << "Invalid stat" << endl;
+                break;
+        }
+    }
 }
-
+}
 void Player::gainExperience(int exp) {
     experience += exp;
     if (experience >= 100) {
-        levelUp();
-        experience = 100-experience;
+        levelUp(this);
     }
 }
-
 Character* Player::selectTarget(vector<Enemy*> possibleTargets) {
     int selectedTarget = 0;
     cout << "Select a target: " << endl;
@@ -89,6 +120,11 @@ Action Player::takeAction(vector<Enemy*> enemies) {
             currentAction.target = target;
             currentAction.action = [this, target]() {
                 doAttack(target);
+                int enemy_exp = target->getExperience();
+                if (target->getHealth() <= 0) {
+                    cout << "You defeated " << target->getName() << "!" << endl;
+                    gainExperience(enemy_exp);
+                }
             };
             currentAction.speed = getSpeed();
             cout << name << " is attacking " << target->getName() << "!" << endl;
@@ -127,6 +163,7 @@ Action Player::takeAction(vector<Enemy*> enemies) {
                     cout << "Invalid action" << endl;
                 break;
             }
+
     }
     cout << "\n";
     return currentAction;
