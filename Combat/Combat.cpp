@@ -103,6 +103,10 @@ void Combat::executeActions(vector<Character*>::iterator participant) {
         //Check if there are any dead characters
         checkParticipantStatus(*participant);
         checkParticipantStatus(currentAction.target);
+
+        if (find(participants.begin(), participants.end(), *participant) == participants.end()) {
+            break;
+        }
     }
 }
 

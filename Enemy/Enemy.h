@@ -15,14 +15,15 @@ class Player;
 
 class Enemy: public Character{
 private:
-   // int experience;
+   int level = 1;
+
 public:
     Enemy(int _experience, char* _name, int _health, int _attack, int _defense, int _speed);
     void doAttack(Character *target) override;
     void takeDamage(int damage) override;
     Character* selectTarget(vector<Player*> possibleTargets);
     Action takeAction(vector<Player*> partyMembers);
-
+    void levelUp();
 };
 
 

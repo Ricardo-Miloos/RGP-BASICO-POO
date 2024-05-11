@@ -106,6 +106,12 @@
 		<Unit filename="C:/POO/RPG basico/2P-RPG parcial/RPG_2P_23310170 Final 1/Enemy/Enemy.h">
 			<Option target="rpg"/>
 		</Unit>
+		<Unit filename="C:/POO/RPG basico/2P-RPG parcial/RPG_2P_23310170 Final 1/GameInfo/FileHandler.cpp">
+			<Option target="rpg"/>
+		</Unit>
+		<Unit filename="C:/POO/RPG basico/2P-RPG parcial/RPG_2P_23310170 Final 1/GameInfo/FileHandler.h">
+			<Option target="rpg"/>
+		</Unit>
 		<Unit filename="C:/POO/RPG basico/2P-RPG parcial/RPG_2P_23310170 Final 1/Player/Player.cpp">
 			<Option target="rpg"/>
 		</Unit>

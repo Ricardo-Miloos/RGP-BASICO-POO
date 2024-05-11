@@ -45,5 +45,4 @@ public:
     string toString();
 };
 
-
 #endif //RPG_CHARACTER_H

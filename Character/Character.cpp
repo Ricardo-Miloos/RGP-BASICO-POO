@@ -3,11 +3,10 @@
 //
 
 #include "Character.h"
+#include <cstring>
 Character::Character(int _experience, char *_name, int _health, int _attack, int _defense, int _speed, bool _isPlayer) {
     //Cambio de name de string a char[30]
-    for (int i = 0; i < 30; i++) {
-        name[i] = _name[i];
-    }
+    strncpy(name, _name, 30);
     health = _health;
     attack = _attack;
     defense = _defense;

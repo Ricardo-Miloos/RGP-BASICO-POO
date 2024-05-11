@@ -195,4 +195,10 @@ CMakeFiles/rpg.dir/main.cpp.obj: \
  E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/deque.tcc \
  E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_queue.h \
  C:\POO\RPG\ basico\2P-RPG\ parcial\RPG_2P_23310170\ Final\ 1\Character/Character.h \
- C:\POO\RPG\ basico\2P-RPG\ parcial\RPG_2P_23310170\ Final\ 1\Combat/Action.h
+ C:\POO\RPG\ basico\2P-RPG\ parcial\RPG_2P_23310170\ Final\ 1\Combat/Action.h \
+ C:\POO\RPG\ basico\2P-RPG\ parcial\RPG_2P_23310170\ Final\ 1\GameInfo/FileHandler.h \
+ E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
+ E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/codecvt.h \
+ E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
+ E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \
+ E:/CLion\ 2023.3.4/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/fstream.tcc
